@@ -1,0 +1,45 @@
+{
+  "name": "capitole-shuttle",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-altares": "git+https://git.altares.fr/studio/eslint-config-altares.git#v1.0.1",
+    "jest-expo": "~1.0.1",
+    "react-native-scripts": "0.0.30",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "lint": "eslint --ignore-path .gitignore .",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "altares/react",
+    "rules": {
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [
+            ".js"
+          ]
+        }
+      ]
+    }
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^17.0.0",
+    "geolib": "^2.0.22",
+    "moment": "^2.18.1",
+    "react": "16.0.0-alpha.6",
+    "react-native": "^0.44.0"
+  }
+}
