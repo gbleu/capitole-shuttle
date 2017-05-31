@@ -1,6 +1,7 @@
 # capitole shuttle
 [![Build Status](https://travis-ci.org/gbleu/capitole-shuttle.svg?branch=travis)](https://travis-ci.org/gbleu/capitole-shuttle)
 [![Quality](https://codeclimate.com/github/gbleu/capitole-shuttle/badges/gpa.svg)](https://codeclimate.com/github/gbleu/capitole-shuttle)
+[![Coverage](https://codeclimate.com/github/gbleu/capitole-shuttle/badges/coverage.svg)](https://codeclimate.com/github/gbleu/capitole-shuttle)
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
