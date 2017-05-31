@@ -6,6 +6,7 @@
     "eslint": "^3.19.0",
     "eslint-config-altares": "git+http://git.altares.fr/studio/eslint-config-altares.git#v1.0.1",
     "jest-expo": "~1.0.1",
+    "jest-fetch-mock": "^1.1.1",
     "react-native-scripts": "0.0.30",
     "react-test-renderer": "16.0.0-alpha.6"
   },
@@ -33,7 +34,8 @@
     }
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "collectCoverage": true
   },
   "dependencies": {
     "expo": "^17.0.0",
