@@ -11,8 +11,8 @@ describe('services', () => {
   describe('trafficTo', () => {
     it('correctly parse api response', async () => {
       fetch.mockResponse(JSON.stringify({
-        rows: [ {
-          elements: [ {
+        rows: [{
+          elements: [{
             distance: {
               text: '2,5 km',
               value: 2482
@@ -26,8 +26,8 @@ describe('services', () => {
               value: 636
             },
             status: 'OK'
-          } ]
-        } ],
+          }]
+        }],
         status: 'OK'
       }));
 

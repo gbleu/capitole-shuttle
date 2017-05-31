@@ -27,7 +27,7 @@ export default class App extends Component {
     location: null,
     sub: null,
     origin: {},
-    departures: [ null, null, null ],
+    departures: [null, null, null],
     traffic: null,
     errorMessage: null
   };
