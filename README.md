@@ -1,3 +1,8 @@
+# capitole shuttle
+[![Build Status](https://travis-ci.org/gbleu/capitole-shuttle.svg?branch=travis)](https://travis-ci.org/gbleu/capitole-shuttle)
+[![Quality](https://codeclimate.com/github/gbleu/capitole-shuttle/badges/gpa.svg)](https://codeclimate.com/github/gbleu/capitole-shuttle)
+[![Coverage](https://codeclimate.com/github/gbleu/capitole-shuttle/badges/coverage.svg)](https://codeclimate.com/github/gbleu/capitole-shuttle)
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
