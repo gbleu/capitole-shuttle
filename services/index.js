@@ -19,9 +19,9 @@ class Services {
 
     let res;
     if (nextDepartureIndex === 0) {
-      res = [ null, ...departures.slice(0, 2) ];
+      res = [null, ...departures.slice(0, 2)];
     } else if (nextDepartureIndex === departures.length) {
-      res = [ ...departures.slice(nextDepartureIndex - 1), null ];
+      res = [...departures.slice(nextDepartureIndex - 1), null];
     } else {
       res = departures.slice(nextDepartureIndex - 1, nextDepartureIndex + 2);
     }
