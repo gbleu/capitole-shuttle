@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 import App from './App';
 
-it.skip('renders without crashing', () => {
+it('renders without crashing', () => {
   const rendered = renderer.create(<App />).toJSON();
-  expect(rendered).toBeTruthy();
+  expect(rendered).toMatchSnapshot();
 });
