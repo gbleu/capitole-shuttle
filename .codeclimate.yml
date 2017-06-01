@@ -1,8 +1,12 @@
 engines:
+  duplication:
+    enabled: true
   eslint:
     enabled: true
     config:
       ignore_warnings: true
     checks:
+      complexity:
+        enabled: true
       import/extensions:
         enabled: false
