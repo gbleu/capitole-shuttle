@@ -1,0 +1,8 @@
+engines:
+  eslint:
+    enabled: true
+    config:
+      ignore_warnings: true
+    checks:
+      import/extensions:
+        enabled: false
