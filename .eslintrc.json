@@ -6,6 +6,8 @@
   },
   "rules": {
     "react/jsx-filename-extension": ["error", {"extensions": [".js"]}],
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "complexity": ["error", 6],
+    "max-statements": ["error", 30]
   }
 }

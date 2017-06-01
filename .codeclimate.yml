@@ -9,7 +9,8 @@ engines:
     config:
       ignore_warnings: true
     checks:
-      complexity:
-        enabled: true
       import/extensions:
         enabled: false
+ratings:
+  paths:
+    - "**.js*"
