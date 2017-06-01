@@ -42,13 +42,6 @@ class Services {
     return duration && traffic && Math.round(((traffic - duration) / 60));
   };
 
-  trafficFrom = async (origin) => {
-    if (origin === 'defense') {
-      return this.trafficBetween(conf.spots.defense, conf.spots.capitole);
-    }
-    return this.trafficBetween(conf.spots.capitole, conf.spots.defense);
-  }
-
   trafficTo = async (destination) => {
     if (destination === 'defense') {
       return this.trafficBetween(conf.spots.capitole, conf.spots.defense);
