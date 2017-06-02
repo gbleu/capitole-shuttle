@@ -13,6 +13,8 @@ engines:
     checks:
       import/extensions:
         enabled: false
+  nodesecurity:
+    enabled: true
 ratings:
   paths:
     - "**.js"
