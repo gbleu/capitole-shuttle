@@ -13,14 +13,14 @@ class Services {
   getNextDepartures = (origin) => {
     const departures = conf.spots[origin].departures;
 
-    const now = new Date();
+    const now = Date.now();
     const time = new Date(0, 0, 0, now.getHours(), now.getMinutes());
     const nextDepartureIndex = departures.findIndex(it => it > time);
 
     let res;
     if (nextDepartureIndex === 0) {
       res = [null, ...departures.slice(0, 2)];
-    } else if (nextDepartureIndex === departures.length) {
+    } else if (nextDepartureIndex === departures.length - 1) {
       res = [...departures.slice(nextDepartureIndex - 1), null];
     } else {
       res = departures.slice(nextDepartureIndex - 1, nextDepartureIndex + 2);
