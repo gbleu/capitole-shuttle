@@ -40,13 +40,35 @@ describe('Location component', () => {
     };
     await wrapper.instance().updateLocation(julius);
     expect(wrapper).toMatchSnapshot();
-    expect(services.guessOrigin).toBeCalledWith(julius.coords);
+    expect(services.guessOrigin).toBeCalledWith(julius.coords);    
+  });
 
-    const remove = jest.fn();
-    wrapper.setState({ sub: { remove } });
-    wrapper.unmount();
-    expect(wrapper).toMatchSnapshot();
-    expect(remove).toBeCalled();
+  describe('unmount', () => {
+    let remove;
+
+    beforeEach(() => {
+      remove = jest.fn();
+    });
+    afterEach(() => {
+      remove.mockReset();
+    });
+
+    describe('when no sub', () => {
+      it('should not call remove', () => {
+        const wrapper = shallow(<LocationComp />);
+        wrapper.setState({ sub: undefined });
+        wrapper.unmount();
+        expect(remove).not.toBeCalled();
+      });
+    });
+    describe('when sub', () => {
+      it('should call remove', () => {
+        const wrapper = shallow(<LocationComp />);
+        wrapper.setState({ sub: { remove } });
+        wrapper.unmount();
+        expect(remove).toBeCalled();
+      });
+    });
   });
 
   describe('getLocation', () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
-import { Constants, Location, Permissions } from 'expo';
+import { Text, View, StyleSheet } from 'react-native';
+import { Location, Permissions } from 'expo';
 import moment from 'moment';
 
 import services from '../services';
@@ -33,24 +33,18 @@ export default class LocationComp extends Component {
   };
 
   componentWillMount() {
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
-      });
-    } else {
-      // get initial location
-      this.getLocation();
-      // watch location
-      this.watchLocation();
-      // refresh departures every minute
-      this.interval = setInterval(this.updateDepartures, 1 * 60 * 1000);
-    }
+    // get initial location
+    this.getLocation();
+    // watch location
+    this.watchLocation();
+    // refresh departures every minute
+    this.interval = setInterval(this.updateDepartures, 1 * 60 * 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
 
-    if (this.state.sub && this.state.sub.remove) {
+    if (this.state.sub) {
       this.state.sub.remove();
     }
   }
@@ -71,10 +65,7 @@ export default class LocationComp extends Component {
 
   watchLocation = async () => {
     console.log('watch current location');
-    const sub = Location.watchPositionAsync({}, (location) => {
-      console.log('new location received');
-      this.updateLocation(location);
-    });
+    const sub = Location.watchPositionAsync({}, location => this.updateLocation(location));
     this.setState({ sub });
   };
 
