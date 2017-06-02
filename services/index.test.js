@@ -58,4 +58,33 @@ describe('services', () => {
       });
     });
   });
+
+  describe('guessOrigin', () => {
+    it('should return capitole from julius', () => {
+      const julius = { latitude: 48.888808, longitude: 2.2100604 };
+      const res = services.guessOrigin(julius);
+      expect(res.key).toEqual('capitole');
+    });
+  });
+
+  describe('getNextDepartures', () => {
+    describe('when first departure of day', () => {
+      beforeEach(() => {
+        const date = new Date(0, 0, 0, 6, 0);
+        global.Date = jest.fn(() => date);
+      });
+      afterEach(() => {
+        global.Date.mockRestore();
+      });
+      it('should return first and second departures', () => {
+        const res = services.getNextDepartures('defense');
+        expect(res).toHaveLength(3);
+        expect(res[0]).toBeNull();
+        expect(res[1].getHours()).toBe(7);
+        expect(res[1].getMinutes()).toBe(7);
+        expect(res[2].getHours()).toBe(7);
+        expect(res[2].getMinutes()).toBe(15);
+      });
+    });
+  });
 });
