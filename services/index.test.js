@@ -1,18 +1,10 @@
 /* eslint-env jest */
-import fetchMock from 'jest-fetch-mock';
 
 import services from './index';
 import conf from '../conf';
 
 describe('services', () => {
   describe('trafficBetween', () => {
-    beforeEach(() => {
-      global.fetch = fetchMock;
-    });
-    afterEach(() => {
-      global.fetch.mockRestore();
-    });
-
     it('correctly parse api response', async () => {
       fetch.mockResponse(JSON.stringify({
         rows: [{
