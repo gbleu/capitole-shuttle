@@ -20,8 +20,12 @@ describe('Location component', () => {
   });
 
   it('unmount as expected', () => {
+    const remove = jest.fn();
+
     const wrapper = mount(<Location />);
+    wrapper.setState({ sub: { remove } });
     wrapper.unmount();
     expect(wrapper).toMatchSnapshot();
+    expect(remove).toBeCalled();
   });
 });
