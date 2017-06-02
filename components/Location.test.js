@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import { Location, Permissions } from 'expo';
 
-import Location from './Location';
+import LocationComp from './Location';
 import services from '../services';
 
 describe('Location component', () => {
@@ -19,7 +20,7 @@ describe('Location component', () => {
   });
 
   it('renders as expected', async () => {
-    const wrapper = shallow(<Location />);
+    const wrapper = shallow(<LocationComp />);
     expect(wrapper).toMatchSnapshot();
 
     wrapper.setState({ errorMessage: 'errorMessage' });
@@ -46,5 +47,43 @@ describe('Location component', () => {
     wrapper.unmount();
     expect(wrapper).toMatchSnapshot();
     expect(remove).toBeCalled();
+  });
+
+  describe('getLocation', () => {
+    describe('when permission not granted', () => {
+      beforeEach(() => {
+        Permissions.askAsync = jest.fn(() => ({ status: 'refused' }));
+      });
+      afterEach(() => {
+        Permissions.askAsync.mockRestore();
+      });
+
+      it('should print error message', async () => {
+        const wrapper = shallow(<LocationComp />);
+        await wrapper.instance().getLocation();
+        expect(Permissions.askAsync).toBeCalledWith(Permissions.LOCATION);
+        expect(wrapper.state().errorMessage).toBe('Permission to access location was denied');
+      });
+    });
+
+    describe('when permission granted', () => {
+      beforeEach(() => {
+        Permissions.askAsync = jest.fn(() => ({ status: 'granted' }));
+        Location.getCurrentPositionAsync = jest.fn(() => ({
+          coords: { latitude: 0, longitude: 0 }
+        }));
+      });
+      afterEach(() => {
+        Permissions.askAsync.mockRestore();
+        Location.getCurrentPositionAsync.mockRestore();
+      });
+
+      it('should get location', async () => {
+        const wrapper = shallow(<LocationComp />);
+        await wrapper.instance().getLocation();
+        expect(Permissions.askAsync).toBeCalledWith(Permissions.LOCATION);
+        expect(wrapper.state().location).toMatchObject({ coords: { latitude: 0, longitude: 0 } });
+      });
+    });
   });
 });
