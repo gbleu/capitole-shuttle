@@ -1,11 +1,21 @@
 /* eslint-env jest */
 
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Location from './Location';
 
-it('renders without crashing', () => {
-  const rendered = renderer.create(<Location />).toJSON();
-  expect(rendered).toMatchSnapshot();
+describe('Location component', () => {
+  it('renders as expected', () => {
+    const wrapper = shallow(<Location />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ errorMessage: 'errorMessage' });
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ errorMessage: null, origin: { key: 'defense' } });
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ errorMessage: null, origin: { key: 'capitole' } });
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ departures: [new Date(0, 0, 0, 0, 0, 0, 0), null, null], traffic: 2 });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
