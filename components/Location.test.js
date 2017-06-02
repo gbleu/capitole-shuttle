@@ -40,7 +40,7 @@ describe('Location component', () => {
     };
     await wrapper.instance().updateLocation(julius);
     expect(wrapper).toMatchSnapshot();
-    expect(services.guessOrigin).toBeCalledWith(julius.coords);    
+    expect(services.guessOrigin).toBeCalledWith(julius.coords);
   });
 
   describe('unmount', () => {
