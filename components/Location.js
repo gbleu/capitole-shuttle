@@ -50,7 +50,7 @@ export default class LocationComp extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
 
-    if (this.state.sub) {
+    if (this.state.sub && this.state.sub.remove) {
       this.state.sub.remove();
     }
   }

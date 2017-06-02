@@ -410,3 +410,5 @@ exports[`Location component renders as expected 5`] = `
   </Text>
 </View>
 `;
+
+exports[`Location component unmount as expected 1`] = `""`;

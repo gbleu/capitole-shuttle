@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Location from './Location';
 
@@ -16,6 +16,12 @@ describe('Location component', () => {
     wrapper.setState({ errorMessage: null, origin: { key: 'capitole' } });
     expect(wrapper).toMatchSnapshot();
     wrapper.setState({ departures: [new Date(0, 0, 0, 0, 0, 0, 0), null, null], traffic: 2 });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('unmount as expected', () => {
+    const wrapper = mount(<Location />);
+    wrapper.unmount();
     expect(wrapper).toMatchSnapshot();
   });
 });
