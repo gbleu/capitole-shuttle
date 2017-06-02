@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class App extends Component {
+export default class LocationComp extends Component {
   state = {
     location: null,
     sub: null,

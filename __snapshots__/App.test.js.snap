@@ -13,6 +13,6 @@ exports[`App component renders as expected 2`] = `
     }
   }
 >
-  <App />
+  <LocationComp />
 </View>
 `;
