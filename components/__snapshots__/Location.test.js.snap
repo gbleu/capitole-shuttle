@@ -411,4 +411,97 @@ exports[`Location component renders as expected 5`] = `
 </View>
 `;
 
-exports[`Location component unmount as expected 1`] = `""`;
+exports[`Location component renders as expected 6`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ecf0f1",
+      "flex": 1,
+      "justifyContent": "center",
+      "paddingTop": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 26,
+        "margin": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    capitole -&gt; defense
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 26,
+          "margin": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      00h00
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 26,
+          "margin": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      --:--
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 26,
+          "margin": 24,
+          "textAlign": "center",
+        }
+      }
+    >
+      --:--
+    </Text>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 26,
+        "margin": 24,
+        "textAlign": "center",
+      }
+    }
+  >
+    +
+    2
+     min.
+  </Text>
+</View>
+`;
