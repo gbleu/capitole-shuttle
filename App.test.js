@@ -1,11 +1,15 @@
 /* eslint-env jest */
 
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import App from './App';
 
-it('renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
-  expect(rendered).toMatchSnapshot();
+describe('App component', () => {
+  it('renders as expected', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setState({ appIsReady: true });
+    expect(wrapper).toMatchSnapshot();
+  });
 });

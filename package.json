@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
@@ -11,7 +12,10 @@
     "eslint-plugin-react": "^7.0.1",
     "jest-expo": "~1.0.1",
     "jest-fetch-mock": "^1.1.1",
+    "jest-serializer-enzyme": "^1.0.0",
     "nsp": "^2.6.3",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4",
     "react-native-scripts": "0.0.30",
     "react-test-renderer": "16.0.0-alpha.6"
   },
@@ -27,7 +31,10 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "snapshotSerializers": [
+      "./node_modules/jest-serializer-enzyme"
+    ]
   },
   "dependencies": {
     "expo": "^17.0.0",

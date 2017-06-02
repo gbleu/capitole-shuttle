@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `<ExponentAppLoading />`;
+exports[`App component renders as expected 1`] = `<AppLoading />`;
+
+exports[`App component renders as expected 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ecf0f1",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <App />
+</View>
+`;
